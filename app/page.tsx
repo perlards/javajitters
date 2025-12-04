@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import getAllPosts from "@/app/lib/getAllPosts";
 import {CoffeeProps} from "@/types/CoffeeProps";
 import PostDisplay from "@/app/components/PostDisplay";
-import {distanceInMiles} from "@/app/lib/distanceInMiles";
+import {distanceInMiles} from "@/lib/distanceInMiles";
 
 export default function HomePage() {
     const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
