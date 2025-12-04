@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import getAllPosts from "@/app/lib/getAllPosts";
 import {CoffeeProps} from "@/types/CoffeeProps";
 import PostDisplay from "@/app/components/PostDisplay";
+import {distanceInMiles} from "@/app/lib/distanceInMiles";
 
 export default function HomePage() {
     const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
@@ -71,7 +72,7 @@ export default function HomePage() {
             )}
             {userLocation && testLocation && (
                 <p>
-                    DISTANCE: {distanceInMiles(userLocation, testLocation).toFixed(2)} miles
+                    DISTANCE BETWEEN USER AND TEST: {distanceInMiles(userLocation, testLocation).toFixed(2)} miles
                 </p>
             )}
             <PostDisplay inputPosts={posts}/>
