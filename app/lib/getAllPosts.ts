@@ -3,10 +3,10 @@ import { CoffeeProps } from "@/types/CoffeeProps";
 
 export default async function getAllPosts(): Promise<CoffeeProps[]> {
      const postsCollection = await getCollection(POST_COLLECTION);
-     const data = await postsCollection.find().toArray();
+     const data: CoffeeProps[] = await postsCollection.find().toArray();
 
      const posts: CoffeeProps[] = data.map((p)=> ({
-         id: p._id.toString(),
+         id: p.id.toString(),
          shopName: p.shopName,
          coffeeType: p.coffeeType,
          rating: p.rating,

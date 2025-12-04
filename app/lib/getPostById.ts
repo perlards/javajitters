@@ -14,14 +14,14 @@ export default async function getPostById(id: string): Promise<CoffeeProps | nul
         return null;
     }
 
-    const data = await postCollection.findOne({_id: objectId});
+    const data = await postCollection.findOne({id: objectId});
 
     if (data === null){
         return null;
     }
 
     const coffeePost = {
-        id: data._id.toString(),
+        id: data.id.toString(),
         shopName: data.shopName,
         coffeeType: data.coffeeType,
         rating: data.rating,

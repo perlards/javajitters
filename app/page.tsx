@@ -12,6 +12,8 @@ export default function HomePage() {
     const testAddress = "700 Commonwealth Avenue, Boston, MA";
 
     useEffect(() => {
+        getPostsHome()
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
@@ -23,8 +25,6 @@ export default function HomePage() {
                 }
             );
         }
-
-
 
         async function fetchTestLocation() {
             try {
