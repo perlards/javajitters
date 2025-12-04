@@ -1,4 +1,4 @@
-import { CoffeeProps } from "@/types/CoffeeProps";
+fimport { CoffeeProps } from "@/types/CoffeeProps";
 import Rating from "@mui/material/Rating";
 
 
