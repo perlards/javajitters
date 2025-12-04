@@ -1,9 +1,9 @@
-//import getCollection, { POST_COLLECTION } from "...";
+import getCollection, { POST_COLLECTION } from "...";
 import { CoffeeProps } from "@/types/CoffeeProps";
 
 export default async function getAllPosts(): Promise<CoffeeProps[]> {
-     //const postsCollection = await getCollection(POST_COLLECTION);
-     //const data: CoffeeProps[] = await postsCollection.find().toArray();
+     const postsCollection = await getCollection(POST_COLLECTION);
+     const data: CoffeeProps[] = await postsCollection.find().toArray();
 
      const posts: CoffeeProps[] = data.map((p)=> ({
          id: p.id.toString(),
