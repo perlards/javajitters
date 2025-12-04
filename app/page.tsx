@@ -1,9 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
+import getAllPosts from "@/app/lib/getAllPosts";
+import {CoffeeProps} from "@/types/CoffeeProps";
+import PostDisplay from "@/app/components/PostDisplay";
 
 export default function HomePage() {
     const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
     const [testLocation, setTestLocation] = useState<{ lat: number; lon: number } | null>(null);
+    const [posts, setPosts] = useState< CoffeeProps[]>([]);
 
     const testAddress = "700 Commonwealth Avenue, Boston, MA";
 
@@ -19,6 +23,8 @@ export default function HomePage() {
                 }
             );
         }
+
+
 
         async function fetchTestLocation() {
             try {
@@ -40,9 +46,19 @@ export default function HomePage() {
         fetchTestLocation();
     }, [testAddress]);
 
+    async function getPostsHome(){
+        try{
+            const newData = await getAllPosts();
+
+            setPosts(newData);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     return (
         <main>
-            <h1>JavaJolt</h1>
+            <h1>JavaJitters</h1>
             {userLocation && (
                 <p>
                     YOUR LOCATION IS: {userLocation.lat.toFixed(4)}, {userLocation.lon.toFixed(4)}
@@ -53,6 +69,7 @@ export default function HomePage() {
                     TEST LOCATION IS: {testLocation.lat.toFixed(4)}, {testLocation.lon.toFixed(4)}
                 </p>
             )}
+            <PostDisplay inputPosts={posts}/>
         </main>
     );
 }
