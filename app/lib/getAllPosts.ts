@@ -15,4 +15,6 @@ export default async function getAllPosts(): Promise<CoffeeProps[]> {
          category: p.category,
          location: p.location,
      }));
+
+     return posts.reverse();
 }
