@@ -22,7 +22,7 @@ export default function Nav() {
             <ul>
                 <li><Link href={"/"}>Home</Link></li>
                 <li><Link href={"/about"}>About</Link></li>
-                <li><Link href={""}>Taste Test</Link></li>
+                <li><Link href={"/input"}>Taste Test</Link></li>
                 <li><Link href={"/search"}>Search</Link></li>
                 <li><Link href={"/profile"}>Profile</Link></li>
                 <li><Link href={"/login"} >{loggedIn ? "Log Out" : "Log In"}</Link></li>
