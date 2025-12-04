@@ -69,6 +69,11 @@ export default function HomePage() {
                     TEST LOCATION IS: {testLocation.lat.toFixed(4)}, {testLocation.lon.toFixed(4)}
                 </p>
             )}
+            {userLocation && testLocation && (
+                <p>
+                    DISTANCE: {distanceInMiles(userLocation, testLocation).toFixed(2)} miles
+                </p>
+            )}
             <PostDisplay inputPosts={posts}/>
         </main>
     );
