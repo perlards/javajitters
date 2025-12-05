@@ -61,7 +61,6 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
                           .then((coffee) => { append(coffee);
                               setNewPost(coffee); })
                           .catch((e)=> {console.log("this error occurred: "+ e);
-                              setError("Duplicate entry, wasn't able to create post.");
                           });
                   }
 
