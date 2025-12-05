@@ -6,6 +6,7 @@ import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import createNewCoffee from "@/lib/createNewCoffee";
 import {CoffeeProps} from "@/types/CoffeeProps";
+import {useSession} from "next-auth/react";
 //import LinkPreview from "./LinkPreview";
 
 
@@ -19,6 +20,8 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
     const [location, setLocation] = useState("");
     const [newPost, setNewPost] = useState<CoffeeProps | null>(null);
     const [error, setError] = useState<string>("");
+    const {data: session, status} = useSession();
+
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         const file = acceptedFiles[0];
@@ -48,6 +51,20 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
                           return;
                       }
 
+                      let user = null;
+                      let email = null;
+                      let prof_pic = null;
+
+                      if(status === "unauthenticated" || status === "loading") {
+                          user = "Anonymous";
+                          email = "Anonymous";
+                          prof_pic = "public/user-icon1.jpeg";
+                      }else {
+                          user = session?.user?.name;
+                          email = session?.user?.email;
+                          prof_pic = session?.user?.image;
+                      }
+
                       createNewCoffee({
                           shopName,
                           coffeeType,
@@ -56,6 +73,9 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
                           picture,
                           category,
                           location,
+                          user,
+                          email,
+                          prof_pic
                       })
 
                           .then((coffee) => { append(coffee);
