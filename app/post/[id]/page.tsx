@@ -1,6 +1,6 @@
 import FullCoffeePost from "@/app/components/FullCoffeePost";
-import getPostById from "@/app/lib/getPostById";
 import { redirect } from "next/navigation";
+import getCoffeeById from "@/lib/getCoffeeById";
 
 export default async function FullPostPage({params}:{params:Promise<{id:string}>}){
     const {id} = await params;
@@ -8,7 +8,7 @@ export default async function FullPostPage({params}:{params:Promise<{id:string}>
     let post = null;
 
     try{
-        post = await getPostById(id);
+        post = await getCoffeeById(id);
     }catch(error){
         console.log(error);
         redirect("/");

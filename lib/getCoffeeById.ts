@@ -1,6 +1,9 @@
+"use server";
+
 import getCollection, {COFFEES_COLLECTION} from "@/db";
 import {CoffeeProps} from "@/types/CoffeeProps";
 import {ObjectId } from "mongodb";
+
 export default async function getCoffeeById(id: string): Promise<CoffeeProps | null> {
 
     const coffeeCollection = await getCollection(COFFEES_COLLECTION);

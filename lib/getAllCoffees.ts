@@ -1,3 +1,4 @@
+"use server";
 import getCollection, {COFFEES_COLLECTION} from "@/db";
 import { CoffeeProps } from "@/types/CoffeeProps";
 

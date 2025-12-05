@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import getAllPosts from "@/app/lib/getAllPosts";
 import {CoffeeProps} from "@/types/CoffeeProps";
 import PostDisplay from "@/app/components/PostDisplay";
 import {distanceInMiles} from "@/lib/distanceInMiles";
+import getAllCoffees from "@/lib/getAllCoffees";
 
 export default function HomePage() {
     const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
@@ -49,7 +49,7 @@ export default function HomePage() {
 
     async function getPostsHome(){
         try{
-            const newData = await getAllPosts();
+            const newData = await getAllCoffees();
 
             setPosts(newData);
         }catch(error){
