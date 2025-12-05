@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <main className="max-w-3xl mx-auto p-10 text-center">
-            <h1 className="text-3xl font-bold mb-12 text-[#452B1F] "> Java Jitters</h1>
+            <h1 className="text-3xl font-bold mb-12"> Java Jitters</h1>
             <p className="text-l">
                 Java Jitters is a coffee rating website created as a final project for CS 391 by Perla, Sofia, and Kyle.
                 This project started as an assignment, but quickly grew into a fun way to explore and share coffee experiences in the area.

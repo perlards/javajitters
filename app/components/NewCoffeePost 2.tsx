@@ -2,8 +2,7 @@
 
 import { Textarea } from "@mui/joy";
 import { Button, FormHelperText, TextField, Rating } from "@mui/material";
-import { useState, useCallback } from "react";
-import { useDropzone } from "react-dropzone";
+import { useState } from "react";
 import createNewCoffee from "@/lib/createNewCoffee";
 import {CoffeeProps} from "@/types/CoffeeProps";
 //import LinkPreview from "./LinkPreview";
@@ -20,22 +19,8 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
     const [newPost, setNewPost] = useState<CoffeeProps | null>(null);
     const [error, setError] = useState<string>("");
 
-    const onDrop = useCallback((acceptedFiles: File[]) => {
-        const file = acceptedFiles[0];
-        if (file) {
-            const previewURL = URL.createObjectURL(file);
-            setPicture(previewURL);
-        }
-    }, []);
-
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
-        onDrop,
-        multiple: false,
-        accept: { "image/*": [] },
-    });
-
     return (
-        <form className="w-96 rounded-xl p-4 text-[#452B1F]"
+        <form className="w-96 rounded-xl p-4 bg-brown-400"
               onSubmit ={
                   async(event) =>
                   {
@@ -104,24 +89,13 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
                 required
             />
 
-            <div
-                {...getRootProps()}
-                className="mt-2 border-2 border-dashed border-white p-4 text-center bg-grey cursor-pointer text-grey text-sm "
-            >
-                <input {...getInputProps()} />
-
-                {isDragActive ? (
-                    <p>Drop the image here…</p>
-                ) : picture ? (
-                    <img
-                        src={picture}
-                        alt="Preview"
-                        className="max-h-40 mx-auto rounded-md"
-                    />
-                ) : (
-                    <p>Add your image here!</p>
-                )}
-            </div>
+            <TextField
+                variant="filled"
+                sx={{ backgroundColor: "white", width: "100%", marginTop: "0.5rem" }}
+                label="Picture"
+                value={picture}
+                onChange={(e) => setPicture(e.target.value)}
+            />
 
             <TextField
                 variant="filled"

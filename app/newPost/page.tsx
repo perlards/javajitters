@@ -11,13 +11,13 @@ export default function CoffeeDisplay(){
     return (
 
         <div className="flex flex-col items-center">
-            <h2 className="text-3xl font-bold mb-4"> New Review! </h2>
+            <h2 className="text-3xl font-bold mt-10 mb-4 text-[#452B1F]"> New Review! </h2>
 
             <NewCoffeePost append={(newPost)=> {
                 setPosts([...posts, newPost])
             }}/>
             {posts.map((post) => (
-                <div key={post.id} className="border p-2 mb-2 rounded w-full max-w-lg">
+                <div key={post.id} className="border p-2 mb-2 rounded w-full max-w-lg text-[#452B1F]">
                     <p><strong>{post.shopName}</strong> - {post.coffeeType}</p>
                     <p>Rating: {post.rating}</p>
                     <p>{post.review}</p>

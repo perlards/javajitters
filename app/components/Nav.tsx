@@ -18,7 +18,7 @@ export default function Nav() {
 
 
     return(
-        <nav className="bg-brown-100 p-2">
+        <nav className="text-[#F5DEB3] p-2">
             <ul className="flex space-x-4 justify-center font-bold">
                 <li><Link href={"/"}>Home</Link></li>
                 <li><Link href={"/about"}>About</Link></li>
