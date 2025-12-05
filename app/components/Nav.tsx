@@ -18,11 +18,11 @@ export default function Nav() {
 
 
     return(
-        <nav>
-            <ul>
+        <nav className="bg-brown-100 p-2">
+            <ul className="flex space-x-4 justify-center font-bold">
                 <li><Link href={"/"}>Home</Link></li>
                 <li><Link href={"/about"}>About</Link></li>
-                <li><Link href={"/input"}>Taste Test</Link></li>
+                <li><Link href={"/newPost"}>Taste Test</Link></li>
                 <li><Link href={"/search"}>Search</Link></li>
                 <li><Link href={"/profile"}>Profile</Link></li>
                 <li><Link href={"/login"} >{loggedIn ? "Log Out" : "Log In"}</Link></li>

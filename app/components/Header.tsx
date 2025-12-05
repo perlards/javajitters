@@ -7,14 +7,13 @@ export default function Header() {
     return (
 
         <header className="flex justify-between items-center h-20 bg-brown-400 p-2">
-            <h2 className="text-2xl font-bold p-2">Java Jitters</h2>
+            <h2 className="text-2xl font-bold p-2 items-center" >Java Jitters</h2>
             <nav>
                 <ul className="flex items-center">
-                    <li>
-                        <Link href={`/`} className={linkStyle}>Home</Link>
-                    </li>
-
                     <Nav />
+
+
+
                 </ul>
             </nav>
         </header>

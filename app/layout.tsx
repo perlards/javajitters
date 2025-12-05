@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import {SessionProvider} from "next-auth/react";
+import Nav from "@/app/components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,11 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`min-h-screen flex flex-col ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <SessionProvider>
           <Header />
-              {children}
+
+          <main className="flex-1">{children}</main>
           <Footer />
       </SessionProvider>
       </body>
