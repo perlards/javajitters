@@ -13,8 +13,20 @@ export default function HomePage() {
     const testAddress = "700 Commonwealth Avenue, Boston, MA";
 
     useEffect(() => {
-        getPostsHome()
+        async function getPostsHome(){
+            try{
+                const newData = await getAllCoffees();
+                console.log(newData);
+                setPosts(newData);
+            }catch(error){
+                console.log(error);
+            }
+        }
 
+        getPostsHome().then()
+    }, [])
+
+    useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
@@ -24,7 +36,7 @@ export default function HomePage() {
                 (err) => {
                     console.error("Location error:", err);
                 }
-            );
+           );
         }
 
         async function fetchTestLocation() {
@@ -32,12 +44,12 @@ export default function HomePage() {
                 const res = await fetch('/api/geocode', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ address: testAddress }),
+                     body: JSON.stringify({ address: testAddress }),
                 });
 
                 if (!res.ok) throw new Error("Failed to fetch geocode");
 
-                const data = await res.json();
+               const data = await res.json();
                 setTestLocation({ lat: data.lat, lon: data.lon });
             } catch (error) {
                 console.error("Geocoding failed:", error);
@@ -47,20 +59,12 @@ export default function HomePage() {
         fetchTestLocation();
     }, [testAddress]);
 
-    async function getPostsHome(){
-        try{
-            const newData = await getAllCoffees();
 
-            setPosts(newData);
-        }catch(error){
-            console.log(error);
-        }
-    }
 
     return (
         <main>
             <h1>JavaJitters</h1>
-            {userLocation && (
+            { userLocation && (
                 <p>
                     YOUR LOCATION IS: {userLocation.lat.toFixed(4)}, {userLocation.lon.toFixed(4)}
                 </p>
