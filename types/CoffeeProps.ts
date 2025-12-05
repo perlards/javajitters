@@ -7,5 +7,7 @@ export type CoffeeProps = {
     picture: string;
     category: string;
     location: string;
-
+    user: string | undefined | null;
+    email: string | undefined | null;
+    prof_pic: string | undefined | null;
 }

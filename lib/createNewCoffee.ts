@@ -11,12 +11,15 @@ export default async function createNewCoffee(
         picture: string;
         category: string;
         location: string;
+        user: string | undefined | null;
+        email: string | undefined | null;
+        prof_pic: string | undefined | null;
     }):Promise<CoffeeProps> {
     console.log("Creating new coffee...");
 
-    const { shopName, coffeeType, rating, review, picture, category, location } = data;
+    const { shopName, coffeeType, rating, review, picture, category, location, user, email, prof_pic } = data;
 
-    const newCoffee = { shopName, coffeeType, rating, review, picture, category, location };
+    const newCoffee = { shopName, coffeeType, rating, review, picture, category, location , user, email, prof_pic};
 
     const coffeeCollection = await getCollection(COFFEES_COLLECTION);
 

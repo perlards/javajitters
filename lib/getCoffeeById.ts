@@ -21,5 +21,8 @@ export default async function getCoffeeById(id: string): Promise<CoffeeProps | n
         picture: data.picture,
         category: data.category,
         location: data.location,
+        user: data.user,
+        email: data.email,
+        prof_pic: data.prof_pic
     };
 }

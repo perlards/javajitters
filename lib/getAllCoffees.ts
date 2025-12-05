@@ -16,6 +16,9 @@ export default async function getAllCoffees(): Promise<CoffeeProps[]> {
         picture: c.picture,
         category: c.category,
         location: c.location,
+        user: c.user,
+        email: c.email,
+        prof_pic: c.prof_pic
     }));
     return coffees.reverse();
 }
