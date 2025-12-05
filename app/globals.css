@@ -5,10 +5,10 @@
     --foreground: #644536;
 }
 
-@theme inline {
+@theme {
     --color-navajo-white: var(--background);
     --color-coffee-bean: var(--foreground);
-    --color-sandy-clay: #d4aa7d;
+    --color-light-brown: #987554;
     --color-copper: #b87d48;
     --color-toffee-brown: #9e6240;
     --font-sans: var(--font-geist-sans);
