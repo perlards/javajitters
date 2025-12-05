@@ -7,7 +7,7 @@ export default function  LoginForm() {
     const [loading, setLoading] = useState(false);
     const {data, status } = useSession();
     const loggedIn = status === "authenticated";
-    const divStyle = "flex flex-col justify-center text-navajo-white items-center bg-amber-950 m-5 max-w-1/4";
+    const divStyle = "flex flex-col justify-self-center text-navajo-white items-center bg-amber-950 m-5 w-4/5 h-4/5";
     const buttonStyle= "bg-toffee-brown text-navajo-white max-w-1/5 p-3 m-3 rounded-3xl";
 
     const sendToLogin = async () => {
