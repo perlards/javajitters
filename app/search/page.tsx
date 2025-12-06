@@ -68,28 +68,32 @@ export default function SearchPage() {
     }
 
     return (
-        <main>
-            <h1>Search</h1>
-            <form onSubmit={handleSearch}>
+        <main className="flex flex-col items-center px-4">
+            <h1 className="text-3xl font-bold mt-10 mb-4 text-[#452B1F]">Search Nearby Reviews</h1>
+            <form onSubmit={handleSearch} className="flex flex-col gap-2 mb-6 w-full max-w-md">
                 <input
+                    className="border p-2 rounded text-[#452B1F]"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="Enter address"
                 />
                 <input
                     type="number"
+                    className="border p-2 rounded text-[#452B1F]"
                     value={miles}
                     onChange={(e) => setMiles(Number(e.target.value))}
                 />
-                <button type="submit">Search</button>
+                <button type="submit" className="bg-[#452B1F] text-white px-4 py-2 rounded">Search</button>
             </form>
-
-            {results.map(({ post, dist }) => (
-                <div key={post.id}>
-                    <p>{dist.toFixed(1)} miles</p>
-                    <CoffeePost post={post} />
-                </div>
-            ))}
+            {status && <p className="mb-4 text-[#452B1F] font-medium">{status}</p>}
+            <div className="flex flex-col items-center w-full">
+                {results.map(({ post, dist }) => (
+                    <div key={post.id} className="border p-4 mb-4 rounded w-full max-w-lg text-[#452B1F] bg-white/70">
+                        <p className="mb-1"><strong>{dist.toFixed(1)} miles away</strong></p>
+                        <CoffeePost post={post} />
+                    </div>
+                ))}
+            </div>
         </main>
     );
 }
