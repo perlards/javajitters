@@ -110,6 +110,9 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
                     value ={rating}
                     precision={1}
                     max={5}
+                    sx={{
+                       color: "#825235",
+                    }}
                     onChange={(_, newValue) => setRating(newValue)}
                 />
             </div>
