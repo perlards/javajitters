@@ -8,7 +8,7 @@ export default function  LoginForm() {
     const {data, status } = useSession();
     const loggedIn = status === "authenticated";
     const divStyle = "flex flex-col place-content-center justify-self-center text-navajo-white items-center bg-[#452B1F] m-5 w-4/5 h-130";
-    const buttonStyle= "bg-toffee-brown text-navajo-white max-w-1/5 p-4 m-3 rounded-3xl text-4xl";
+    const buttonStyle= "bg-toffee-brown hover:bg-[#653F29] text-navajo-white max-w-1/5 p-4 m-3 rounded-3xl text-4xl";
 
     const sendToLogin = async () => {
         try {

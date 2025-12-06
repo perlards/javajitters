@@ -5,7 +5,7 @@ import CoffeePost from "@/app/components/CoffeePost";
 
 export default function PostDisplay({inputPosts}:{inputPosts:CoffeeProps[]}){
     const posts = inputPosts;
-    const styleDiv = "grid grid-cols-3 overflow-scroll auto"
+    const styleDiv = "flex flex-col overflow-scroll auto lg:grid grid-cols-3 overflow-scroll auto"
 
 
     return (
