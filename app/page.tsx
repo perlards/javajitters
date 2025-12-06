@@ -9,6 +9,7 @@ export default function HomePage() {
     const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
     const [testLocation, setTestLocation] = useState<{ lat: number; lon: number } | null>(null);
     const [posts, setPosts] = useState< CoffeeProps[]>([]);
+    const pStyle = "pt-5 pl-5 text-xl";
 
     const testAddress = "700 Commonwealth Avenue, Boston, MA";
 
@@ -63,19 +64,19 @@ export default function HomePage() {
 
     return (
         <main>
-            <h1>JavaJitters</h1>
+            <h1 className={"font-bold mt-10 mb-4 text-[#452B1F] text-center text-3xl"}>JavaJitters</h1>
             { userLocation && (
-                <p>
+                <p className={pStyle}>
                     YOUR LOCATION IS: {userLocation.lat.toFixed(4)}, {userLocation.lon.toFixed(4)}
                 </p>
             )}
             {testLocation && (
-                <p>
+                <p className={pStyle}>
                     TEST LOCATION IS: {testLocation.lat.toFixed(4)}, {testLocation.lon.toFixed(4)}
                 </p>
             )}
             {userLocation && testLocation && (
-                <p>
+                <p className={pStyle}>
                     DISTANCE BETWEEN USER AND TEST: {distanceInMiles(userLocation, testLocation).toFixed(2)} miles
                 </p>
             )}
