@@ -64,7 +64,7 @@ export default function HomePage() {
 
     return (
         <main>
-            <h1 className={"font-bold mt-10 mb-4 text-[#452B1F] text-center text-3xl"}>JavaJitters</h1>
+            <h1 className={"text-4xl font-bold mb-12 text-[#452B1F] mt-10 text-center"}>Java Jitters</h1>
             { userLocation && (
                 <p className={pStyle}>
                     YOUR LOCATION IS: {userLocation.lat.toFixed(4)}, {userLocation.lon.toFixed(4)}

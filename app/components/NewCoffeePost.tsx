@@ -25,10 +25,13 @@ export default function NewCoffeeForm({ append }: { append: (post: CoffeeProps) 
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         const file = acceptedFiles[0];
-        if (file) {
-            const previewURL = URL.createObjectURL(file);
-            setPicture(previewURL);
-        }
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setPicture(reader.result as string);  // Base64 string
+        };
+        reader.readAsDataURL(file);  // Convert file to base
     }, []);
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
