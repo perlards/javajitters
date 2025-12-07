@@ -11,7 +11,7 @@ export default function CoffeeDisplay(){
     return (
 
         <div className="flex flex-col items-center">
-            <h2 className="text-3xl font-bold mt-10 mb-4 text-[#452B1F]"> New Review! </h2>
+            <h2 className="text-4xl font-bold mb-8 text-[#452B1F] mt-10 text-center"> Taste Test! </h2>
 
             <NewCoffeePost append={(newPost)=> {
                 setPosts([...posts, newPost])
