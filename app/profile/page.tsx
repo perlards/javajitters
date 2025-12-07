@@ -72,6 +72,10 @@ export default function ProfilePage() {
                             src={avatar}
                             alt={displayName}
                             className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-navajo-white"
+                            onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = "/user-icon1.jpeg";
+                            }}
                         />
                         <h2 className="text-2xl font-semibold mb-1">{displayName}</h2>
                         {displayEmail && (
