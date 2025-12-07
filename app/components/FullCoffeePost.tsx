@@ -25,7 +25,17 @@ export default function FullCoffeePost({post} : {post: CoffeeProps}){
                                 color: "#825235",
                             }}
                     />
-                    <img className={"h-80 w-80 p-3 mx-auto m-4"} src={post.picture} alt={`${post.coffeeType} from ${post.shopName}`}/>
+                    {post.picture && post.picture !== "" ? (
+                        <img
+                            className="h-80 w-80 p-3 mx-auto m-4 rounded"
+                            src={post.picture}
+                            alt={`${post.coffeeType} from ${post.shopName}`}
+                        />
+                    ) : (
+                        <p className="mt-1 w-full text-center text-[#452B1F] text-xl font-semibold rounded border border-dashed border-gray-300 p-20 mt-5 mb-5">
+                            No Image Uploaded :(
+                        </p>
+                    )}
                     <div>
                         <h2 className={"font-bold text-3xl"}>{post.coffeeType}</h2>
                         <p className={"text-2xl mb-10"}>{post.review}</p>
