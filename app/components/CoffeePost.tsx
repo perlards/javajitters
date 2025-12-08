@@ -15,7 +15,17 @@ export default function CoffeePost({post}:{post:CoffeeProps}){
                         <CoffeeIcon/><h3>{ post.rating}</h3>
                     </div>
                 </div>
-                <img className={"max-w-auto p-5 mx-auto"} src={ `${post.picture}`} alt={`${post.coffeeType} from ${post.shopName}`}/>
+                {post.picture && post.picture !== "" ? (
+                    <img
+                        className="h-80 w-80 p-3 mx-auto m-4 rounded"
+                        src={post.picture}
+                        alt={`${post.coffeeType} from ${post.shopName}`}
+                    />
+                ) : (
+                    <p className="mt-1 w-full text-center text-[#452B1F] text-xl font-semibold rounded border border-dashed border-gray-300 p-20 mt-5 mb-5">
+                        No Image Uploaded :(
+                    </p>
+                )}
             </div>
         </Link>
     )
